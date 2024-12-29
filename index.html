@@ -1,46 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>252425.xyz Webseiten</title>
+    <title>Mein Homelab</title>
     <style>
         body {
-            background-color: black;
-            color: white;
             font-family: Arial, sans-serif;
             margin: 0;
+            padding: 0;
+            background-color: #121212; /* Dunkles Schwarz für den Hintergrund */
+            color: #e0e0e0; /* Heller Text für Kontrast */
+        }
+        header {
+            background-color: #1f1f1f; /* Dunkles Grau für den Header */
+            color: #ffffff; /* Weißer Text */
+            text-align: center;
+            padding: 1.5rem 0;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        header p {
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        main {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background: #1f1f1f; /* Dunkles Grau für die Karten */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            text-align: center;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            justify-content: space-between;
+            height: 100%;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        h1 {
-            text-align: center;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
         }
-        .button-container {
-            margin-top: 20px;
+        .card h2 {
+            margin-bottom: 1rem;
+            color: #ffffff; /* Weißer Text für die Titel */
         }
-        .button-container a {
+        .card p {
+            flex-grow: 1; /* Ermöglicht, dass der Text den verfügbaren Platz einnimmt */
+        }
+        .card a {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #ffffff; /* Weiß für die Buttons */
+            color: #121212; /* Dunkle Schriftfarbe für den Text */
             text-decoration: none;
-            color: white;
-            background-color: gray;
-            padding: 10px 20px;
-            border-radius: 5px;
-            margin: 0 10px;
-            font-size: 16px;
+            border-radius: 4px;
+            transition: background-color 0.2s, color 0.2s, transform 0.2s;
         }
-        .button-container a:hover {
-            background-color: darkgray;
+        .card a:hover {
+            background-color: #f3f4f6; /* Helles Grau bei Hover */
+            color: #1f1f1f; /* Dunklere Schriftfarbe */
+            transform: scale(1.1); /* Vergrößern des Buttons bei Hover */
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #1f1f1f;
+            color: #e0e0e0;
+            margin-top: 2rem;
         }
     </style>
 </head>
 <body>
-    <h1>252425.xyz Webseiten</h1>
-    <div class="button-container">
-        <a href="https://ai.252425.xyz">AI</a>
-        <a href="https://superai.252425.xyz">Super AI</a>
-    </div>
+    <header>
+        <h1>Willkommen in meinem Homelab</h1>
+        <p>Dies ist mein persönliches Projekt, in dem ich mit verschiedenen Technologien experimentiere und mein Wissen erweitere. Schau dir die verschiedenen Dienste und Tools an, die ich hier betreibe.</p>
+    </header>
+    <main>
+        <div class="card">
+            <h2>NextCloud</h2>
+            <p>Private Cloud für Dateien und Zusammenarbeit.</p>
+            <a href="https://mynextcloud.252425.xyz" target="_blank">Zur NextCloud</a>
+        </div>
+        <div class="card">
+            <h2>AI</h2>
+            <p>Lokale KI, die 24/7 verfügbar ist. Eher geeignet, um eine private, lokale KI zu nutzen.</p>
+            <a href="https://ai.252425.xyz" target="_blank">Zur AI</a>
+        </div>
+        <div class="card">
+            <h2>Super AI</h2>
+            <p>Für aufwändige Aufgaben. Nicht 24/7 online, aber sehr leistungsfähig für komplexe Prozesse.</p>
+            <a href="https://superai.252425.xyz" target="_blank">Zur Super AI</a>
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 Mein Homelab</p>
+    </footer>
 </body>
 </html>
