@@ -53,6 +53,7 @@
             color: var(--text-color);
             text-align: center;
             padding: 1.5rem 1rem;
+            margin-top: 4rem;
         }
         header h1 {
             font-size: clamp(1.5rem, 5vw, 2.5rem);
@@ -258,15 +259,77 @@
             -moz-user-drag: none;
             -o-user-drag: none;
         }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--header-bg);
+            padding: 1rem;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .nav-link:hover {
+            background: var(--button-bg);
+        }
+        /* Mobile Anpassungen */
+        @media (max-width: 600px) {
+            .nav-content {
+                gap: 0.5rem;
+                padding: 0 0.5rem;
+            }
+            .nav-link {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.6rem;
+            }
+        }
+        /* Sehr kleine Bildschirme */
+        @media (max-width: 400px) {
+            .nav-content {
+                gap: 0.3rem;
+            }
+            .nav-link {
+                font-size: 0.85rem;
+                padding: 0.3rem 0.5rem;
+            }
+        }
+        /* Smooth Scrolling für die ganze Seite */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#home" class="nav-link">Meine Homelabdienste</a>
+            <a href="#dienste" class="nav-link">Mein Technologie-Stack</a>
+            <a href="#projekte" class="nav-link">Mein Technologie-Stack</a>
+        </div>
+    </nav>
     <div class="theme-switch" id="themeSwitch" title="Theme wechseln">
         <svg id="themeIcon" viewBox="0 0 24 24">
             <path d="M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/>
         </svg>
     </div>
-    <header>
+    <header id="home">
         <div style="text-align: center; margin: 20px;">
             <img src="banner.jpeg" alt="Beschreibung des Bildes" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
         </div>
@@ -274,28 +337,47 @@
         <p>Dies ist mein persönliches Projekt, in dem ich mit verschiedenen Technologien experimentiere und mein Wissen erweitere. Schau dir die verschiedenen Dienste und Tools an, die ich hier betreibe.</p>
     </header>
 
-    <section>
+    <section id="dienste">
         <h2>Meine Homelabdienste</h2>
         <div class="cards-container">
             <div class="card">
-                <h3>NextCloud</h3>
-                <p>Private Cloud für Dateien und Zusammenarbeit.</p>
-                <a href="https://mynextcloud.252425.xyz" target="_blank">Zur NextCloud</a>
+                <h3>252425 Cloud</h3>
+                <p>Meine persönliche Cloud-Lösung für sichere Dateispeicherung, Kalender, Kontakte und mehr. Basierend auf NextCloud für maximale Datensicherheit und Privatsphäre. Alle Daten werden lokal in meinem Homelab gespeichert.</p>
+                <a href="https://mynextcloud.252425.xyz" target="_blank">Zur 252425 Cloud</a>
             </div>
             <div class="card">
-                <h3>AI</h3>
-                <p>Lokale KI, die 24/7 verfügbar ist. Eher geeignet, um eine private, lokale KI zu nutzen.</p>
-                <a href="https://ai.252425.xyz" target="_blank">Zur AI</a>
+                <h3>KI-Dienste</h3>
+                <p>Zwei verschiedene lokale KI-Dienste: Eine stromsparende KI für den 24/7-Betrieb und eine leistungsstarke KI auf einem dedizierten PC für komplexe Aufgaben (nicht 24/7 verfügbar).</p>
+                <a href="https://ai.252425.xyz" target="_blank">Zur stromsparenden KI</a>
+                <a href="https://superai.252425.xyz" target="_blank">Zur leistungsstarken KI</a>
             </div>
             <div class="card">
-                <h3>Super AI</h3>
-                <p>Für aufwändige Aufgaben. Nicht 24/7 online, aber sehr leistungsfähig für komplexe Prozesse.</p>
-                <a href="https://superai.252425.xyz" target="_blank">Zur Super AI</a>
+                <h3>Home Assistant</h3>
+                <p>Eine zentrale Plattform für die Steuerung und Automatisierung meines Smart Homes. Ermöglicht die Integration verschiedener Geräte und Dienste in einem einheitlichen Interface.</p>
+                <p><strong>Coming Soon</strong></p>
             </div>
         </div>
     </section>
 
-    <section>
+    <section id="stack">
+        <h2>Mein Technologie-Stack</h2>
+        <div class="cards-container">
+            <div class="card" data-modal="hardwareModal">
+                <h3>Server & Hardware</h3>
+                <p>Klick für Details</p>
+            </div>
+            <div class="card" data-modal="softwareModal">
+                <h3>Software & Dienste</h3>
+                <p>Klick für Details</p>
+            </div>
+            <div class="card" data-modal="netzwerkModal">
+                <h3>Netzwerk & Sicherheit</h3>
+                <p>Klick für Details</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projekte">
         <h2>Meine Projekte</h2>
         <div class="cards-container">
             <div class="card">
@@ -331,6 +413,224 @@
             </div>
         </div>
     </section>
+    
+    <!-- Modals -->
+    <div id="hardwareModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Server & Hardware</h2>
+        <ul class="modal-list">
+          <li><strong>PC (Super AI):</strong> RTX 4060 Ti, AMD Ryzen 5 5600, 32 GB RAM, 1 TB Speicher</li>
+          <li><strong>iMac (KI):</strong> Apple M1, 16 GB RAM, 1 TB Speicher</li>
+          <li><strong>Raspberry Pi 5 (252425 Cloud):</strong> 4 GB RAM, 2 TB Speicher</li>
+        </ul>
+        <h3 style="margin-top:1.2em;margin-bottom:0.5em;">Geplante Erweiterungen</h3>
+        <ul class="modal-list">
+          <li><strong>Mac mini:</strong> Apple M4, 16 GB RAM, 256 GB Speicher</li>
+          <li><strong>Apple TV 4K (2017):</strong> A10X Fusion, 64 GB Speicher</li>
+          <li><strong>Raspberry Pi 4:</strong> 4 GB RAM</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div id="softwareModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Software & Dienste</h2>
+        <ul class="modal-list">
+          <li>Docker (Container Management)</li>
+          <li>Nextcloud (Cloud-Speicher)</li>
+          <li>Lokale KI-Modelle</li>
+          <li>GitHub Pages (Projekthosting)</li>
+          <li>Cloudflare Tunnel (Remote-Zugang)</li>
+          <li>Tailscale (VPN)</li>
+          <li>Moonlight mit Sunshine (PC-Game-Streaming vom Homelab aus)</li>
+        </ul>
+        <h3 style="margin-top:1.2em;margin-bottom:0.5em;">Geplante Erweiterung</h3>
+        <ul class="modal-list">
+          <li>Home Assistant (Home Automation)</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div id="netzwerkModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Netzwerk & Sicherheit</h2>
+        <ul class="modal-list">
+          <li>Cloudflare Zero Trust</li>
+          <li>Tailscale VPN</li>
+        </ul>
+      </div>
+    </div>
+    
+    <style>
+    .cards-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        box-sizing: border-box;
+    }
+    @media (min-width: 600px) {
+        .cards-container {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+    }
+    @media (min-width: 900px) {
+        .cards-container {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    .card {
+        background: var(--card-bg, #222);
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        padding: 1.2rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+        border: 1px solid var(--border-color, #333);
+        transition: all 0.3s ease;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .card:hover {
+        transform: translateY(-5px) scale(1.03);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+        border-color: #555;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 3000;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.5);
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+    .modal.show {
+      display: flex;
+      animation: fadeIn 0.2s;
+    }
+    .modal-content {
+      background: var(--card-bg, #222);
+      color: var(--text-color, #fff);
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      padding: 32px 28px 24px 28px;
+      max-width: 800px;
+      width: 90vw;
+      position: relative;
+      transform: scale(0.9);
+      opacity: 0;
+      animation: zoomIn 0.3s forwards;
+      text-align: left;
+    }
+    .modal-content h2 {
+      margin-top: 0;
+      margin-bottom: 0.8em;
+      text-align: center;
+    }
+    .modal-content h3 {
+      font-size: 1.15em;
+      color: var(--text-color, #fff);
+      font-weight: 600;
+      text-align: left;
+    }
+    .close {
+      position: absolute;
+      top: 12px; right: 20px;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--text-color, #fff);
+    }
+    .modal-list {
+      list-style-type: disc;
+      padding-left: 1.3em;
+      margin: 0;
+    }
+    .modal-list li {
+      margin-bottom: 0.5em;
+      font-size: 1em;
+      line-height: 1.5;
+    }
+    @keyframes fadeIn {
+      from { background: rgba(0,0,0,0); }
+      to   { background: rgba(0,0,0,0.5); }
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.7); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+    </style>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Karten-Click-Handler
+      document.querySelectorAll('.card[data-modal]').forEach(card => {
+        card.addEventListener('click', function() {
+          const modalId = card.getAttribute('data-modal');
+          openModal(modalId);
+        });
+      });
+    
+      // X-Button-Handler
+      document.querySelectorAll('.modal .close').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          const modal = btn.closest('.modal');
+          closeModal(modal.id);
+        });
+      });
+    
+      // Hintergrund-Click-Handler
+      document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal) {
+            closeModal(modal.id);
+          }
+        });
+      });
+    
+      // Escape-Handler
+      document.addEventListener('keydown', function(e) {
+        if (e.key === "Escape") {
+          document.querySelectorAll('.modal.show').forEach(modal => {
+            closeModal(modal.id);
+          });
+        }
+      });
+    
+      // Modal-Öffnen
+      function openModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+          modal.style.display = "flex";
+          setTimeout(() => { modal.classList.add("show"); }, 10);
+        }
+      }
+      // Modal-Schliessen
+      function closeModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+          modal.classList.remove("show");
+          setTimeout(() => { modal.style.display = "none"; }, 200);
+        }
+      }
+    
+      // Funktionen global machen für Inline-Fallbacks
+      window.openModal = openModal;
+      window.closeModal = closeModal;
+    });
+    </script>
+    
 
     <footer>
         <div class="footer-content">
